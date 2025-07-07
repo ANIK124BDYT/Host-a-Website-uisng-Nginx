@@ -184,3 +184,14 @@ Feel free to open an issue in this repository or reach out to the project mainta
 
 Thanks for reading! Now your website is live and secured with HTTPS.  
 Happy hosting 🚀
+
+## 🙌 Credits
+
+- 🧠 Guide written & maintained by [anik124bd](https://github.com/anik124bd)
+- 💻 VPS Setup & Nginx Configuration by **Anik**
+- 📄 Inspired by real-world deployment needs
+- 📢 Spread the word if this helped you!
+
+---
+
+⭐ Star this repo if you found it useful!
