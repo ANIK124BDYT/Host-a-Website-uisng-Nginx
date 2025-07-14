@@ -20,19 +20,30 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install nginx certbot python3-certbot-nginx -y
 ```
 
+## 🌐 Point Your Domain to VPS
+Go to your domain registrar DNS settings, and:
+- Add an A Record for `@` pointing to your VPS IP
+- Add another `A` Record for `www` pointing to the same IP
+
+Example:
+```bash
+Type: A
+Name: @
+Value: <your VPS IP>
+
+Type: A
+Name: www
+Value: <your VPS IP>
+```
+⚠️ If Using CloudFlare Disable Proxy
+
 ## 📁 Upload Your Website Files
 ```bash
 sudo mkdir -p /var/www/yourdomain.com
 ```
-Add your index.html (or upload full site):
+Add your index.html (or upload full site codes inside the `var/www/yourdomain.com`):
 
-Set permissions:
-```bash
-sudo chown -R www-data:www-data /var/www/yourdomain.com
-sudo chmod -R 755 /var/www/yourdomain.com
-```
-
-## ⚙️ Step 4: Configure Nginx
+## 🖥️ Configure Nginx
 ```bash
 sudo nano /etc/nginx/sites-available/yourdomain.com
 ```
@@ -50,6 +61,8 @@ server {
     }
 }
 ```
+⚠️ Replace 'yourdomain.com' with your domain
+
 Enable the config:
 ```bash
 sudo ln -s /etc/nginx/sites-available/yourdomain.com /etc/nginx/sites-enabled/
@@ -60,23 +73,7 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-## 🌐 Step 5: Point Your Domain to VPS
-Go to your domain registrar DNS settings, and:
-- Add an A Record for `@` pointing to your VPS IP
-- Add another `A` Record for `www` pointing to the same IP
-
-Example:
-```bash
-Type: A
-Name: @
-Value: <your VPS IP>
-
-Type: A
-Name: www
-Value: <your VPS IP>
-```
-
-## 🔐 Step 6: Enable SSL (HTTPS) with Certbot
+## 🔐 Enable SSL (HTTPS) with Certbot
 Install Certbot:
 ```bash
 sudo apt install certbot python3-certbot-nginx -y
@@ -93,11 +90,7 @@ Test auto-renewal:
 ```bash
 sudo certbot renew --dry-run
 ```
-
-
-
-
-
+---
 
 ## 🌐 how to redirect a subdomain like discord.yourdomain.com to a custom URL (like a Discord invite)
 
@@ -131,8 +124,7 @@ Install SSL:
 ```code
 sudo certbot --nginx -d discord.yourdomain.com
 ```
-
-
+---
 ## 📂 Directory Structure
 ```code
 /var/www/
