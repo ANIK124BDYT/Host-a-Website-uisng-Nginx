@@ -60,8 +60,6 @@ server {
         try_files $uri $uri/ =404;
     }
 }
-
-
 ```
 ⚠️ Replace 'yourdomain.com' with your domain
 
