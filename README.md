@@ -75,7 +75,7 @@ sudo ln -s /etc/nginx/sites-available/yourdomain.com /etc/nginx/sites-enabled/
 Test and reload:
 ```bash
 sudo nginx -t
-sudo systemctl reload nginx
+sudo nginx -s reload
 ```
 
 ## 🔐 Enable SSL (HTTPS) with Certbot
