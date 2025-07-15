@@ -52,18 +52,15 @@ Paste this:
 server {
     listen 80;
     server_name <domain>;
-    root /var/www/<domain>;
-    index index.html;
+    root /var/www/<folder>;
 
-    location /.well-known/acme-challenge/ {
-        root /var/www/test;
-        allow all;
-    }
+    index index.html;
 
     location / {
         try_files $uri $uri/ =404;
     }
 }
+
 
 ```
 ⚠️ Replace 'yourdomain.com' with your domain
