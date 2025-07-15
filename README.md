@@ -51,15 +51,20 @@ Paste this:
 ```code
 server {
     listen 80;
-    server_name yourdomain.com www.yourdomain.com;
+    server_name <domain>;
+    root /var/www/<domain>;
+    index index.html;
 
-    root /var/www/yourdomain.com/html;
-    index index.html index.htm;
+    location /.well-known/acme-challenge/ {
+        root /var/www/test;
+        allow all;
+    }
 
     location / {
         try_files $uri $uri/ =404;
     }
 }
+
 ```
 ⚠️ Replace 'yourdomain.com' with your domain
 
